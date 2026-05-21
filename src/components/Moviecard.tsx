@@ -1,52 +1,34 @@
-// import Image from "next/image";
-
-// import { Card, CardContent } from "./ui/card";
-// import { Star } from "lucide-react";
-
-// const Moviecard = ({ rating, moviename, image }) => {
-//   return (
-//     <Card className=" w-[230px] ">
-//       <CardContent className="flex flex-col ">
-//         <Image src={image} alt="movie-image" width={230} height={340} />
-//         <div className="flex flex-col  p-2 ">
-//           <p className="flex gap-2">
-//             <Star fill="yellow " stroke="yellow" />
-//             <span>{rating}/10</span>
-//           </p>
-//           <span className=" flex items-center w-full h-[56px]">
-//             {moviename}
-//           </span>
-//         </div>
-//       </CardContent>
-//     </Card>
-//   );
-// };
-// export default Moviecard;
-
-import Image, { StaticImageData } from "next/image";
-
-import { Card, CardContent } from "./ui/card";
+import { Card } from "./ui/card";
+import { CardContent } from "./ui/card";
+import Image from "next/image";
 import { Star } from "lucide-react";
+import type { MoviecardProps } from "@/app/page";
 
-type MoviecardProps = {
-  image: string | StaticImageData;
-  rating: number | string;
-  moviename: string;
-};
-
-const Moviecard = ({ rating, moviename, image }: MoviecardProps) => {
+const MovieCard = ({ movie }: { movie: MoviecardProps }) => {
   return (
-    <Card className="w-[230px]">
-      <CardContent className="flex flex-col">
-        <Image src={image} alt="movie-image" width={230} height={340} />
+    <Card className="w-[230px] overflow-hidden">
+      <CardContent className="p-0">
+        <div className="relative w-full h-[340px]">
+          <Image
+            src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+            alt={movie.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 230px"
+            className="object-cover"
+          />
+        </div>
 
-        <div className="flex flex-col p-3 ">
-          <p className="flex gap-1 items-center">
+        <div className="flex flex-col py-2 px-3 bg-[#F4F4F5]">
+          <p className="flex gap-1 h-[23px] items-center">
             <Star fill="yellow" stroke="yellow" size={16} />
-            <span className="text-black ">{rating}/10</span>
+            <span className="text-black text-sm flex items-center gap-0.5">
+              {movie.vote_average}
+              <span className="text-gray-300 text-xs">/10</span>
+            </span>
           </p>
-          <span className="flex  items-center w-full h-[56px]">
-            {moviename}
+
+          <span className="flex text-lg items-start w-full h-[56px]">
+            {movie.title}
           </span>
         </div>
       </CardContent>
@@ -54,4 +36,4 @@ const Moviecard = ({ rating, moviename, image }: MoviecardProps) => {
   );
 };
 
-export default Moviecard;
+export default MovieCard;
