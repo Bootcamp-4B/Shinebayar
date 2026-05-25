@@ -29,13 +29,15 @@ const MoviesData = ({ title }: { title: string }) => {
             .replace("_", " ")
             .replace(/\b\w/g, (char) => char.toUpperCase())}
         </p>
-        <button className="flex justify-center cursor-pointer w-[120px] h-[36px] gap-2 items-center">
-          See more
-          <Image src="/arrow-right.png" alt="arrow" width={16} height={16} />
+        <button className="flex justify-center  w-[120px] h-[36px] ">
+          <a className="flex gap-2 items-center" href="/demo">
+            See more
+            <Image src="/arrow-right.png" alt="arrow" width={16} height={16} />
+          </a>
         </button>
       </div>
       <div className="flex gap-8 flex-wrap justify-center">
-        {movies.map((movie) => {
+        {movies.map((movie: any) => {
           return <MovieCard key={movie.id} movie={movie} />;
         })}
       </div>

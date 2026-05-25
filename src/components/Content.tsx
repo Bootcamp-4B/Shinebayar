@@ -22,9 +22,11 @@ const Contentimage = ({
     <CardContent className="flex w-full h-[600px] relative ">
       <Image
         src={contentimage}
-        alt="movie-image"
+        alt={contentname}
         priority
         fill
+        unoptimized
+        // loading="eager"
         className="object-cover"
       />
       <div className="absolute flex flex-col gap-4 h-[264px] w-[404px]  left-[140px] bottom-[158px]">
@@ -37,8 +39,10 @@ const Contentimage = ({
         <p className="text-[#FAFAFA] text-xs font-normal w-[302px]   ">
           {contenttext}
         </p>
-        <div className="flex bg-white p-3 w-[145px] rounded-md gap-2">
-          <Image src={"/play.png"} alt="trailer" width={16} height={16} />
+        <div className="flex bg-white p-3 w-[145px] items-center rounded-md gap-2">
+          <div className="w-4 h-4 relative">
+            <Image src={"/play.png"} alt="trailer" width={16} height={16} />
+          </div>
           <p className="text-sm">Watch Trailer</p>
         </div>
       </div>

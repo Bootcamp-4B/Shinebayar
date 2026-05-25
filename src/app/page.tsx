@@ -23,6 +23,24 @@ export interface MoviecardProps {
   vote_average: number;
   vote_count: number;
 }
+export interface CarouselProps {
+  adult: boolean;
+  backdrop_path: string;
+
+  genre_ids: number[];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: number;
+  softcore: boolean;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
 
 export default function Home() {
   return (
