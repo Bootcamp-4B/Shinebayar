@@ -29,7 +29,7 @@ const CarouselData = () => {
       });
   }, []);
   return (
-    <Carousel className="  relative group ">
+    <Carousel className="relative group ">
       <CarouselContent>
         {carousel
           .filter((movie) => movie.backdrop_path)

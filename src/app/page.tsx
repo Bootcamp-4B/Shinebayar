@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CarouselData from "@/components/Carousel";
 import MoviesData from "@/components/MoviesData";
+import Navigation from "@/components/Navigation";
 
 export interface MoviecardProps {
   adult: boolean;
@@ -42,12 +43,28 @@ export interface CarouselProps {
   vote_count: number;
 }
 
+export interface MovieDescriptionType {
+  cast: CastType[];
+  crew: CrewType[];
+}
+interface CastType {
+  id: number;
+  name: string;
+}
+
+interface CrewType {
+  id: number;
+  name: string;
+  job: string;
+}
+
 export default function Home() {
   return (
-    <div className="max-w-[1440px] mx-auto w-full flex flex-col relative">
-      <div className="">
-        <CarouselData />
-        <div className="flex flex-col ">
+    <div className=" mx-auto w-full flex flex-col relative ">
+      <Navigation />
+      <CarouselData />
+      <div className="w-full flex justify-center">
+        <div className="flex max-w-[1440px]  justify-center flex-col ">
           <MoviesData title="upcoming" />
           <MoviesData title="top_rated" />
           <MoviesData title="popular" />
