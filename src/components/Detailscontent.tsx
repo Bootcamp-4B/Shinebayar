@@ -19,22 +19,18 @@ const DetailsContent = ({ movie, director, writers, stars }: Props) => {
         ))}
       </p>
 
-      {/* Overview */}
       <p>{movie?.overview}</p>
 
-      {/* Director */}
       <span className="flex gap-[53px]">
         <p className="font-bold">Director</p>
         <p>{director?.name}</p>
       </span>
 
-      {/* Writers */}
       <span className="flex gap-[53px]">
         <p className="font-bold">Writers</p>
         <p>{writers?.map((w) => w.name).join(" · ")}</p>
       </span>
 
-      {/* Stars */}
       <span className="flex gap-[53px]">
         <p className="font-bold">Stars</p>
         <p>{stars?.map((s) => s.name).join(" · ")}</p>

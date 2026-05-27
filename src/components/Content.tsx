@@ -19,15 +19,16 @@ const Contentimage = ({
   contenttext,
 }: ContentImageProps) => {
   return (
-    <CardContent className="flex w-full h-[600px] relative ">
+    <CardContent className="flex w-full h-[600px] relative p-0 overflow-hidden">
       <Image
         src={contentimage}
         alt={contentname}
         priority
         fill
         unoptimized
-        // loading="eager"
+        sizes="100vw"
         className="object-cover"
+        style={{ objectFit: "cover" }}
       />
       <div className="absolute flex flex-col gap-4 h-[264px] w-[404px]  left-[140px] bottom-[158px]">
         <h3 className="text-base font-bold text-white">{playing}</h3>

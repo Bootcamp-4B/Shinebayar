@@ -36,7 +36,7 @@ const CarouselData = () => {
           .map((movie) => (
             <CarouselItem key={movie.id}>
               <div className="p-1">
-                <Card className="relative flex w-full h-auto overflow-hidden">
+                <Card className="relative flex  overflow-hidden">
                   <Contentimage
                     contentimage={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                     playing="Now Playing"

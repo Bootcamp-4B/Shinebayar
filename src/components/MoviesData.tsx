@@ -30,7 +30,7 @@ const MoviesData = ({ title }: { title: string }) => {
             .replace(/\b\w/g, (char) => char.toUpperCase())}
         </p>
         <button className="flex justify-center  w-[120px] h-[36px] ">
-          <a className="flex gap-2 items-center" href="/demo">
+          <a className="flex gap-2 items-center">
             See more
             <Image src="/arrow-right.png" alt="arrow" width={16} height={16} />
           </a>
