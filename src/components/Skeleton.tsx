@@ -1,13 +1,15 @@
-import { Skeleton } from "@/components/ui/skeleton";
-
-export function SkeletonDemo() {
+const SkeletonDemo = () => {
   return (
-    <div className="flex items-center gap-4">
-      <Skeleton className="h-12 w-12 rounded-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-[500px]" />
-        <Skeleton className="h-4 w-[200px]" />
-      </div>
+    <div className="grid grid-cols-5 gap-4">
+      {Array.from({ length: 10 }).map((_, index) => (
+        <div key={index} className="w-[190px] animate-pulse">
+          <div className="w-[190px] h-[372px] rounded-md bg-gray-300" />
+          <div className="mt-2 h-4 w-[170px] rounded bg-gray-300" />
+          <div className="mt-2 h-4 w-[80px] rounded bg-gray-300" />
+        </div>
+      ))}
     </div>
   );
-}
+};
+
+export default SkeletonDemo;

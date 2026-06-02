@@ -1,3 +1,5 @@
+"use cient"
+
 import { Card } from "./ui/card";
 import { CardContent } from "./ui/card";
 import Image from "next/image";
@@ -12,7 +14,7 @@ const MovieCard = ({ movie }: { movie: MoviecardProps }) => {
         <CardContent className="p-0">
           <div className="relative w-full h-[340px]">
             <Image
-              src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
               fill
               sizes="(max-width: 768px) 100vw, 230px"

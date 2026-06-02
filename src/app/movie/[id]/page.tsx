@@ -142,18 +142,45 @@ const Demo = () => {
   const handleOnclick = () => setTrailerShow(!trailerShow);
   if (!movie) {
     return (
-      <div className="flex w-full justify-center flex-col">
-        <div className="flex justify-center w-full">
-          <div className="max-w-`[1080px] flex flex-col gap-5">
-            <div className="flex relative gap-`[30px]">
-              <div className="relative w-`[290px] h-`[428px] overflow-hidden rounded-md" />
-              <div className=" w-`[760px] h-`[428px] overflow-hidden rounded-md" />
-            </div>
-            <Skeleton />
+    <div className="flex w-full justify-center flex-col">
+      <Navigation />
+
+      <div className="flex justify-center w-full">
+        <div className="max-w-[1080px] flex flex-col gap-5">
+
+          <div className="flex relative gap-[30px] animate-pulse">
+
+            {/* poster skeleton */}
+            <div className="relative w-[290px] h-[428px] bg-gray-300 rounded-md" />
+
+            {/* backdrop skeleton */}
+            <div className="w-[760px] h-[428px] bg-gray-300 rounded-md" />
+
           </div>
+
+
+          {/* title */}
+          <div className="animate-pulse flex flex-col gap-3">
+            <div className="w-[400px] h-8 bg-gray-300 rounded" />
+            <div className="w-[250px] h-5 bg-gray-300 rounded" />
+          </div>
+
+
+          {/* details text */}
+          <div className="animate-pulse flex flex-col gap-3">
+            <div className="w-full h-4 bg-gray-300 rounded" />
+            <div className="w-[80%] h-4 bg-gray-300 rounded" />
+            <div className="w-[60%] h-4 bg-gray-300 rounded" />
+          </div>
+
+
+          {/* More like cards */}
+          <Skeleton />
+
         </div>
       </div>
-    );
+    </div>
+  );
   }
 
   const director = credits?.crew?.find((person) => person.job === "Director");
