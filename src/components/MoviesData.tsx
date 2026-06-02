@@ -1,45 +1,57 @@
-import type { MoviecardProps } from "@/app/page";
-import MovieCard from "./MovieCard";
+"use client";
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import MovieCard from "./MovieCard";
 
 const MoviesData = ({ title }: { title: string }) => {
-  const [movies, setMovies] = useState<MoviecardProps[]>([]);
+  const router = useRouter();
+  const [movies, setMovies] = useState<any[]>([]);
+
+  const pushSeeMore = (category: string) => {
+    router.push(`/SeeMore/${category}`);
+  };
+
   useEffect(() => {
+    if (!title) return;
+
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${title}?language=en-US&page=1`,
         {
           headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNWQ5NzM4NTlmMTM3MzQzNjQ1MWJlZWM3NWFlNzVkOSIsIm5iZiI6MTc3OTI2ODIxMi4xMDYsInN1YiI6IjZhMGQ3YTc0ZjBiNDVhZGU5MDA2YTdiNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zJVw16x-JbKpRDDJV1sTdA2WmEsgbhKXLBvgCrn81SU",
+            Authorization: `Bearer YOUR_TOKEN`,
           },
         },
       )
       .then((response) => {
         setMovies(response.data.results);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [title]);
+
   return (
     <div>
       <div className="flex justify-between px-20 py-10">
-        <p className="flex justify-start w-[120px] h-[36px] items-center text-2xl font-bold">
-          {title
-            .replace("_", " ")
-            .replace(/\b\w/g, (char) => char.toUpperCase())}
+        <p className="text-2xl font-bold">
+          {title.replace("_", " ").toUpperCase()}
         </p>
-        <button className="flex justify-center  w-[120px] h-[36px] ">
-          <a className="flex gap-2 items-center">
-            See more
-            <Image src="/arrow-right.png" alt="arrow" width={16} height={16} />
-          </a>
+
+        <button
+          className="flex items-center gap-2 cursor-pointer"
+          onClick={() => pushSeeMore(title)}
+        >
+          See more
+          <Image src="/vector.png" alt="arrow" width={10} height={10} />
         </button>
       </div>
+
       <div className="flex gap-8 flex-wrap justify-center">
-        {movies.map((movie: any) => {
-          return <MovieCard key={movie.id} movie={movie} />;
-        })}
+        {movies.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
       </div>
     </div>
   );

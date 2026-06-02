@@ -1,10 +1,12 @@
+"use client";
+
 const Navigation = () => {
   return (
     <div className="flex w-full justify-center">
       <div className="flex justify-between w-[1280px] p-10 ">
         <div className="flex items-center w-23 gap-2 ">
           <img
-            className="w-4 h-4 stroke-[#4338CA] stroke-[1px] "
+            className="w-4 h-4 stroke-[#4338CA] stroke-[1px]"
             src="/film.png"
             alt="film"
           />

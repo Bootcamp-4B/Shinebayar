@@ -29,14 +29,14 @@ const CarouselData = () => {
       });
   }, []);
   return (
-    <Carousel className="relative group ">
+    <Carousel className="relative h-[600px] group ">
       <CarouselContent>
         {carousel
           .filter((movie) => movie.backdrop_path)
           .map((movie) => (
             <CarouselItem key={movie.id}>
               <div className="p-1">
-                <Card className="relative flex  overflow-hidden">
+                <Card className="relative flex bg-cover overflow-hidden">
                   <Contentimage
                     contentimage={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
                     playing="Now Playing"

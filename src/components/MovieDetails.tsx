@@ -16,7 +16,5 @@ const MovieDetails = () => {
         setDetails(response.data.results);
       });
   }, []);
-
-  return <div>hello</div>;
 };
 export default MovieDetails;

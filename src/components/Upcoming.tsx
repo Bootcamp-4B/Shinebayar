@@ -74,7 +74,10 @@ const Upcoming = () => {
                   <div className="flex flex-col text-sm py-2 px-3 bg-[#F4F4F5] ">
                     <p className="flex gap-1 h-[23px] items-center">
                       <Star fill="yellow" stroke="yellow" size={16} />
-                      <span id="upcomingbutton" className="text-black flex items-center gap-0.5 ">
+                      <span
+                        id="upcomingbutton"
+                        className="text-black flex items-center gap-0.5 "
+                      >
                         {movie.vote_average}
                         <span className="text-gray-300 text-xs">/10</span>
                       </span>
