@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import SearchInput from "@/components/SearchInput";
 
 type GenreType = {
   id: number;
@@ -66,19 +67,20 @@ const Navigation = () => {
             </div>
           )}
 
-          <form
+          <div
             onSubmit={handleSearch}
             className="flex items-center gap-2.5 px-3 py-2 rounded-md border bg-white shadow-sm"
           >
             <img className="h-4 w-4" src="/search.png" alt="search" />
-            <input
+            {/* <input
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               type="search"
               placeholder="Search..."
               className="outline-none"
-            />
-          </form>
+            /> */}
+            <SearchInput />
+          </div>
         </div>
 
         <button className="cursor-pointer">

@@ -52,6 +52,7 @@ const DetailsHero = ({ movie, trailer, trailerShow, handleOnclick }: Props) => {
               controls
               playing
             />
+            <iframe></iframe>
           </div>
         )}
 

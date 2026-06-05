@@ -101,7 +101,7 @@ const GenrePage = () => {
                 {totalResults} titles in “{genreName}”
               </h2>
 
-              <div className="grid grid-cols-4 gap-x-8 gap-y-8">
+              <div className="flex flex-wrap gap-4">
                 {movies.slice(0, 12).map((movie) => (
                   <Link
                     href={`/movie/${movie.id}`}
