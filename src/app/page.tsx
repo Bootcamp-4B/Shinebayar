@@ -1,7 +1,5 @@
 "use client";
 
-import axios from "axios";
-import { useState, useEffect } from "react";
 import CarouselData from "@/components/Carousel";
 import MoviesData from "@/components/MoviesData";
 import Navigation from "@/components/Navigation";
